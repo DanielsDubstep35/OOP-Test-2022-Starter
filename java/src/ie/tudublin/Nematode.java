@@ -1,5 +1,6 @@
 package ie.tudublin;
 
+import processing.data.Table;
 import processing.data.TableRow;
 
 public class Nematode {
@@ -11,11 +12,11 @@ public class Nematode {
     private int eyes;
 
     public Nematode(TableRow tr) {
-        this.name = tr.getString("Nematode Name");
-        this.length = tr.getInt("Nematode Length");
-        this.limbs = tr.getInt("Nematode Limbs");
-        this.gender = tr.getString("Nematode Gender");
-        this.eyes = tr.getInt("Nematode Eyes");
+        this.name = tr.getString("name");
+        this.length = tr.getInt("length");
+        this.limbs = tr.getInt("limbs");
+        this.gender = tr.getString("gender");
+        this.eyes = tr.getInt("eyes");
     }
 
     public String getName() {

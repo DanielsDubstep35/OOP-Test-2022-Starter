@@ -10,6 +10,10 @@ public class NematodeVisualiser extends PApplet
 {
 	ArrayList<Nematode> nematodes;
 
+	Nematode nematode;
+
+	Table table;
+
 	public void keyPressed()
 	{		
 		if (keyCode == LEFT)
@@ -27,7 +31,8 @@ public class NematodeVisualiser extends PApplet
 	{
 		colorMode(HSB);
 		background(0);
-		smooth();				
+		smooth();	
+
 	}
 	
 
@@ -41,7 +46,7 @@ public class NematodeVisualiser extends PApplet
 		for (TableRow row : table.rows())
 		{
 
-			Nematode nematode = new Nematode(row);
+			nematode = new Nematode(row);
 			nematodes.add(nematode);
 		}
 
@@ -54,56 +59,33 @@ public class NematodeVisualiser extends PApplet
 
 		loadNematodes();
 
-		// Assigning the Nematodes a name and drawing it to the screen
-		for (Nematode nematode : nematodes)
-		{
-			nematode.setName(table.rows());
+		drawNematode();
 
-			fill(0, 408, 612);
-			text(nematode.getName(), width / 2, height / 4);
+		for (TableRow row : table.rows()) {
+
+			// drawNematode();
 		}
 
-		// Assigning the Nematodes a length
-		for (Nematode nematode : nematodes)
-		{
-			nematode.setLength(nematode.getLength());
+	}
 
-			for (int i = 0; i < nematode.getLength(); i++) {
-				ellipse(width / 2, i * (10), 10, 10);
-			}
+	private void nematode(int i) {
+	}
+
+
+	public void drawNematode() 
+	{
+
+		// drawing the name
+		for (int i = 0; i < 13; i++) {
+			String Name = nematode.getName();
+			fill(200, 200, 200);
+			textSize(50);
+			text(Name, (i * 20), height / 2);
 		}
 
-		// Assigning the Nematodes a number of limbs
-		for (Nematode nematode : nematodes)
-		{
-			nematode.setLimbs(nematode.getLength());
-
-			for (int i = 0; i < nematode.getLength(); i++) {
-				line( (width / 2) - 5, i * (10), 5, 5);
-			}
-		}
-
-		// Assigning the Nematodes a gender
-		for (Nematode nematode : nematodes)
-		{
-			text(nematode.getGender(), 10, 10);
-
-			nematode.setLimbs(nematode.getGender());
-		}
-
-		// Assigning the Nematodes an eye or not
-		for (Nematode nematode : nematodes)
-		{
-			text(nematode.getEyes(), 10, 10);
-
-			nematode.setLimbs(nematode.getEyes());
-		}
-
-		// Choose your Nematode
-		for (TableRow row : table.rows())
-		{
-			Nematode nematode = new Nematode(row);
-			nematodes.add(nematode);
+		// drawing the body
+		for (int i = 0; i < 13; i++) {
+			ellipse((i * 20), height / 2, 10, 10);
 		}
 
 	}
