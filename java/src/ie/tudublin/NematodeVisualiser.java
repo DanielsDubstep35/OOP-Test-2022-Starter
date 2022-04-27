@@ -63,7 +63,7 @@ public class NematodeVisualiser extends PApplet
 
 		for (TableRow row : table.rows()) {
 
-			// drawNematode();
+			drawNematode();
 		}
 
 	}
