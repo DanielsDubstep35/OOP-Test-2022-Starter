@@ -49,51 +49,56 @@ public class NematodeVisualiser extends PApplet
 
 	public void draw()
 	{	
-		background(0);
-		
-		ArrayList<Nematode> nematodes = new ArrayList<Nematode>();
+		background(255);
 
 		loadNematodes();
 
-		// Assigning the Nematodes a name
+		// Assigning the Nematodes a name and drawing it to the screen
 		for (Nematode nematode : nematodes)
 		{
-			text(nematode.getName(), 10, 10);
-
 			nematode.setName(nematode.getName());
+
+			fill(0, 408, 612);
+			text(nematode.getName(), width / 2, height / 4);
 		}
 
 		// Assigning the Nematodes a length
-		for (Nematode nematode : nematodes.getLength())
+		for (Nematode nematode : nematodes)
 		{
-			text(nematode.getLength(), 10, 10);
-
 			nematode.setLength(nematode.getLength());
+
+			for (int i = 0; i < nematode.getLength(); i++) {
+				ellipse(width / 2, i * (10), 10, 10);
+			}
 		}
 
 		// Assigning the Nematodes a number of limbs
-		for (Nematode nematode : nematodes.getLimbs())
+		for (Nematode nematode : nematodes)
 		{
-			text(nematode.getLimbs(), 10, 10);
+			nematode.setLimbs(nematode.getLength());
 
-			nematode.setLimbs(nematode.getLimbs());
+			for (int i = 0; i < nematode.getLength(); i++) {
+				line( (width / 2) - 5, i * (10), 5, 5);
+			}
 		}
 
 		// Assigning the Nematodes a gender
-		for (Nematode nematode : nematodes.getGender())
+		for (Nematode nematode : nematodes)
 		{
-			text(nematode.getLimbs(), 10, 10);
+			text(nematode.getGender(), 10, 10);
 
 			nematode.setLimbs(nematode.getGender());
 		}
 
 		// Assigning the Nematodes an eye or not
-		for (Nematode nematode : nematodes.getEyes())
+		for (Nematode nematode : nematodes)
 		{
-			text(nematode.getLimbs(), 10, 10);
+			text(nematode.getEyes(), 10, 10);
 
 			nematode.setLimbs(nematode.getEyes());
 		}
+
+
 
 	}
 }
